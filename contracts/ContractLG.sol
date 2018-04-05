@@ -1,5 +1,7 @@
 pragma solidity ^0.4.18;
 
+//import "./concat.sol";
+
 contract ContractLG {
     // title & status
     string title;
@@ -45,8 +47,11 @@ contract ContractLG {
     function viewValidity() public view returns (string, string, string) {
         return (commencementDate, tenure, warranty);
     }
-    function viewAddress() public view returns (string, string) {
-        return (eyAddress, partyAddress);
+    function viewEYAddress() public view returns (string) {
+        return eyAddress;
+    }
+    function viewPartyAddress() public view returns (string) {
+        return partyAddress;
     }
     function viewDescription() public view returns (string) {
         return contractDescription;
