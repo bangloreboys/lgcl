@@ -202,40 +202,20 @@ module.exports = function(callback) {
     });
 
     console.log("1..Contract address............" + myContract.contractAddress);
-
-    // get all contract values in one go into strContract
-    //getContract();
-
-    function getContract() {
-      var strContract;
-      myContract.methods.viewTitle().call().then(function(v) {
-        strContract = JSON.stringify(v);
-        console.log("viewLGC1: " + strContract);   
-      }).then(myContract.methods.viewStatus().call().then(function(v) {
-        strContract = strContract + "|\n" + JSON.stringify(v);
-        console.log("viewLGC2: " + strContract);   
-      })).then(myContract.methods.viewValidity().call().then(function(v) {
-        strContract = strContract + "|\n" + JSON.stringify(v);
-        console.log("viewLGC3: " + strContract);   
-      })).then(myContract.methods.viewEYAddress().call().then(function(v) {
-        strContract = strContract + "|\n" + JSON.stringify(v);
-        console.log("viewLGC4: " + strContract);   
-      })).then(myContract.methods.viewPartyAddress().call().then(function(v) {
-        strContract = strContract + "|\n" + JSON.stringify(v);
-        console.log("viewLGC5: " + strContract);   
-      })).then(myContract.methods.viewDescription().call().then(function(v) {
-        strContract = strContract + "|\n" + JSON.stringify(v);
-        console.log("viewLGC6: " + strContract);   
-      }));
-      return strContract;
-    }
     
     // set all contract values in one go into strContract
     let froma;
     froma = fromAddress;
     console.log("fromAddress================:" + froma);
-    //setContract("This is the new Title - A320 Landing Gear Contract", "AMENDMENT", "Now Date", "20 years", "1 year", "EY Address changed", "Party address changed", "new desc");
-    setAddress("EY add--------", "Party add-----------");
+
+    setContract("This is the new Title - A320 Landing Gear Contract", "AMENDMENT", "Now Date", "20 years", "1 year", "EY Address changed", "Party address changed", "new desc");
+/*
+    setTitle("Title set--------",);
+    setStatus("Status set--------",);
+    setValidity("date set--------", "tennure set-----------", "validity set-----------");
+    setAddress("EY add set--------", "Party add set-----------");
+    setDescription("Desc. set--------",);
+*/
 
     function setTitle(strTitle) {
       myContract.methods.setTitle(strTitle).send({from: froma}, function (err, res) {
