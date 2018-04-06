@@ -203,8 +203,8 @@ module.exports = function(callback) {
 
     console.log("1..Contract address............" + myContract.contractAddress);
 
+    // get all contract values in one go into strContract
     var strContract;
-    // async view call (promise)
     myContract.methods.viewTitle().call().then(function(v) {
       strContract = JSON.stringify(v);
       console.log("viewLGC1: " + strContract);   
